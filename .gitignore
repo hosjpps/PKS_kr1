@@ -1,0 +1,32 @@
+# Build results
+bin/
+obj/
+*.o
+*.exe
+
+# C++ build
+KR1/hello
+KR1/*.o
+
+# .NET / Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.db
+*.db-shm
+*.db-wal
+
+# NuGet
+packages/
+
+# IDE
+.vs/
+.vscode/
+*.swp
+*~
+.idea/

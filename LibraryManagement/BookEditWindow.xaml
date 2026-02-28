@@ -1,0 +1,73 @@
+<Window x:Class="LibraryManagement.BookEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Книга"
+        Height="520" Width="480"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{StaticResource BackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="{StaticResource PrimaryBrush}" Padding="20,14">
+            <TextBlock x:Name="WindowTitle" Text="Добавить книгу"
+                       FontSize="18" FontWeight="Bold" Foreground="White"/>
+        </Border>
+
+        <!-- Form -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="24,20">
+                <!-- Title -->
+                <TextBlock Text="НАЗВАНИЕ" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="TitleBox" Style="{StaticResource ModernTextBox}" Margin="0,0,0,14"/>
+
+                <!-- Author -->
+                <TextBlock Text="АВТОР" Style="{StaticResource FieldLabel}"/>
+                <ComboBox x:Name="AuthorCombo" Style="{StaticResource ModernComboBox}" Margin="0,0,0,14"/>
+
+                <!-- Genre -->
+                <TextBlock Text="ЖАНР" Style="{StaticResource FieldLabel}"/>
+                <ComboBox x:Name="GenreCombo" Style="{StaticResource ModernComboBox}" Margin="0,0,0,14"/>
+
+                <!-- Year and ISBN -->
+                <Grid Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="16"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="ГОД ПУБЛИКАЦИИ" Style="{StaticResource FieldLabel}"/>
+                        <TextBox x:Name="YearBox" Style="{StaticResource ModernTextBox}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="ISBN" Style="{StaticResource FieldLabel}"/>
+                        <TextBox x:Name="IsbnBox" Style="{StaticResource ModernTextBox}"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Quantity -->
+                <TextBlock Text="КОЛИЧЕСТВО В НАЛИЧИИ" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="QuantityBox" Style="{StaticResource ModernTextBox}" Width="120"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Footer buttons -->
+        <Border Grid.Row="2" Background="White" Padding="24,14"
+                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Отмена" Click="Cancel_Click"
+                        Style="{StaticResource SecondaryButton}" Margin="0,0,8,0"/>
+                <Button Content="Сохранить" Click="Save_Click"
+                        Style="{StaticResource PrimaryButton}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
